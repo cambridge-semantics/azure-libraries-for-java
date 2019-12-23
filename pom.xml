@@ -372,7 +372,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
-            <version>2.4.1</version>
+            <version>3.2.0</version>
             <configuration>
             </configuration>
             <executions>
@@ -396,6 +396,22 @@
                   <transformers>
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                   </transformers>
+                  <relocations>
+                    <relocation>
+                      <pattern>com.fasterxml.jackson</pattern>
+                      <shadedPattern>com.shaded.com.fasterxml.jackson</shadedPattern>
+                      <includes>
+                        <include>com.fasterxml.jackson.**</include>
+                      </includes>
+                    </relocation>
+                    <relocation>
+                      <pattern>okio</pattern>
+                      <shadedPattern>com.shaded.okio</shadedPattern>
+                      <includes>
+                        <include>okio.**</include>
+                      </includes>
+                    </relocation>
+                  </relocations>
                 </configuration>
               </execution>
             </executions>
