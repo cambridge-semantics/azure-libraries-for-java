@@ -383,6 +383,8 @@
                   <goal>shade</goal>
                 </goals>
                 <configuration>
+                  <createSourcesJar>true</createSourcesJar>
+                  <createDependencyReducedPom>true</createDependencyReducedPom>
                   <filters>
                     <filter>
                       <artifact>*:*</artifact>
@@ -402,13 +404,6 @@
                       <shadedPattern>com.shaded.com.fasterxml.jackson</shadedPattern>
                       <includes>
                         <include>com.fasterxml.jackson.**</include>
-                      </includes>
-                    </relocation>
-                    <relocation>
-                      <pattern>okio</pattern>
-                      <shadedPattern>com.shaded.okio</shadedPattern>
-                      <includes>
-                        <include>okio.**</include>
                       </includes>
                     </relocation>
                   </relocations>
